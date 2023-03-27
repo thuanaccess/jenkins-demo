@@ -6,8 +6,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+			sh'''
                 echo "Building.."
-                bat 'python3 helloworld.py'          
+                python3 helloworld.py
+			'''          
 		  }
         }
         
