@@ -12,13 +12,13 @@ pipeline {
 			'''          
 		  }
         }
-	        stages {
+	       
         stage('Hello') {
             steps {
                 sh "echo 'Hello world,1' >> test.csv"
                     }
             }
-    }
+    
         post {
             always{
                 archiveArtifacts artifacts: '*.csv', onlyIfSuccessful: true
