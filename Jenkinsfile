@@ -17,10 +17,8 @@ pipeline {
             steps {
                 sh "echo 'Hello world,1' >> test.csv"
                     }
-            }
-    
-        post {
-            always{
+		post {
+           	 always{
                 archiveArtifacts artifacts: '*.csv', onlyIfSuccessful: true
                 
                 emailext to: "mavanthuan05051998@gmail.com",
@@ -31,6 +29,9 @@ pipeline {
             cleanWs()
             }
         }
+            }
+    
+    
         
     }
 }
