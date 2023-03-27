@@ -17,7 +17,8 @@ pipeline {
             steps {
                 sh "echo 'Hello world,1' >> test.csv"
                     }
-		post {
+	}
+	    post {
            	 always{
                 archiveArtifacts artifacts: '*.csv', onlyIfSuccessful: true
                 
@@ -26,12 +27,8 @@ pipeline {
                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}",
                 attachmentsPattern: '*.csv'
                 
-            cleanWs()
-            }
-        }
-            }
-    
-    
-        
-    }
+            	cleanWs()
+           	 }
+        	}
+    	}
 }
